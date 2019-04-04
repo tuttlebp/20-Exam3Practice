@@ -6,8 +6,8 @@ This problem provides practice at:
 
 Authors: David Mutchler, Vibha Alangar, Matt Boutell, Dave Fisher,
          Mark Hays, Amanda Stouder, Aaron Wilkin, their colleagues,
-         and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         and Brett Tuttle.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 
 def main():
@@ -38,6 +38,23 @@ def run_test_zero_changer():
     # or an empty tuple, or a list with no zeros, etc.
     # -------------------------------------------------------------------------
 
+    # Test 2:
+    test1 = ([0, 4, 0, 9], [77, 0, 0, 1, 5, 0], [4, 0, 4], [4, 0, 4])
+    expected1 = ([1, 4, 2, 9], [77, 3, 4, 1, 5, 5], [4, 6, 4], [4, 7, 4])
+    zero_changer(test1)
+    print()
+    print('Test 1:')
+    print('  Expected:', expected1)
+    print('  Actual:  ', test1)
+
+    # Test 1:
+    test1 = ([8, 4, 1, 9], [77, 2, 77, 1, 5, 9], [4, 4, 4], [4, 10, 4])
+    expected1 = ([8, 4, 1, 9], [77, 2, 77, 1, 5, 9], [4, 4, 4], [4, 10, 4])
+    zero_changer(test1)
+    print()
+    print('Test 1:')
+    print('  Expected:', expected1)
+    print('  Actual:  ', test1)
 
 def zero_changer(tuple_of_lists):
     """
@@ -72,7 +89,14 @@ def zero_changer(tuple_of_lists):
     #    DIFFICULTY:      7
     #    TIME ESTIMATE:  10 minutes.
     # -------------------------------------------------------------------------
-
+    count = 0
+    for k in range(len(tuple_of_lists)):
+        sublist = tuple_of_lists[k]
+        for j in range(len(sublist)):
+            if sublist[j] == 0:
+                count = count + 1
+                sublist[j] = count
+    return sublist
 
 # -----------------------------------------------------------------------------
 # Calls  main  to start the ball rolling.

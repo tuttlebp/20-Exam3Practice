@@ -142,7 +142,11 @@ def practice_problem4a(sequence):
     #    DIFFICULTY:      7
     #    TIME ESTIMATE:   15 minutes.
     ###########################################################################
-
+    list = []
+    for k in range(1, len(sequence)):
+        if sequence[k - 1] == sequence[k]:
+            list = list + [k - 1]
+    return list
 
 def run_test_practice_problem4b():
     """ Tests the    practice_problem4b    function. """
@@ -205,7 +209,11 @@ def practice_problem4b(sequence):
     #    DIFFICULTY:      5
     #    TIME ESTIMATE:   10 minutes.
     ###########################################################################
-
+    biggest = sequence[0]
+    for k in range(0, len(sequence), 2):
+        if sequence[k] > biggest:
+            biggest = sequence[k]
+    return biggest
 
 def run_test_practice_problem4c():
     """ Tests the    practice_problem4c    function. """
@@ -307,8 +315,17 @@ def practice_problem4c(points):
     #    DIFFICULTY:      9
     #    TIME ESTIMATE:   15 minutes.
     ###########################################################################
+    for k in range(len(points)):
 
+        if is_prime(points[k].x) and is_prime(points[k].y) is True:
+            x = points[k].x
+            y = points[k].y
 
+            points[k].y = x
+
+            points[k].x = y
+            return points[k]
+    return 'Not Found'
 def run_test_practice_problem4d():
     """ Tests the    practice_problem4d    function. """
     # -------------------------------------------------------------------------
@@ -399,7 +416,12 @@ def practice_problem4d(sequence):
     #    DIFFICULTY:      7
     #    TIME ESTIMATE:   15 minutes.
     ###########################################################################
-
+    sum = 0
+    for k in range(len(sequence) - 1):
+        if sequence[k] != sequence[k + 1]:
+            if is_prime(sequence[k]) and is_prime(sequence[k + 1]) is True:
+                sum = sum + sequence[k]
+    return sum
 
 # -----------------------------------------------------------------------------
 # Calls  main  to start the ball rolling.

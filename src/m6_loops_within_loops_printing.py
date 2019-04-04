@@ -88,8 +88,21 @@ def shape(r):
     #    DIFFICULTY:      7
     #    TIME ESTIMATE:  15 minutes.
     # -------------------------------------------------------------------------
+    for k in range(1, r + 1):
+        for j in range(k):
+            print(' ', end = '')
 
+        for h in range(r - k + 1):
+            print('+', end = '')
+        print('!', end = '')
 
+        for g in range(r - k, -1, -1):
+            print(g + 1, end='')
+
+        for f in range(k - 1):
+            print('-', end='')
+
+        print()
 # -----------------------------------------------------------------------------
 # Calls  main  to start the ball rolling.
 # -----------------------------------------------------------------------------
